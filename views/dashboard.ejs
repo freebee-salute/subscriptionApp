@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Dashboard</title>
+  </head>
+  <body>
+    <h1>Welcome <%= user.username %>!</h1>
+    <h2>Your Subscriptions:</h2>
+    <% if (subscriptions.length > 0) { %>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Duration</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% subscriptions.forEach(function(subscription) { %>
+            <tr>
+              <td><%= subscription.name %></td>
+              <td><%= subscription.price %></td>
+              <td><%= subscription.duration %> months</td>
+            </tr>
+          <% }); %>
+        </tbody>
+      </table>
+    <% } else { %>
+      <p>You have no subscriptions yet. <a href="/subscriptions/new">Create one now</a>.</p>
+    <% } %>
+    <form method="POST" action="/logout">
+      <button type="submit">Log Out</button>
+    </form>
+  </body>
+</html>
