@@ -24,6 +24,5 @@ jobs:
 
     - name: Build
       run: |
-        npm init -y &&
-        npm install
+        npm init -y && npm install
  
